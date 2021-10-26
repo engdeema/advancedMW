@@ -15,7 +15,7 @@ exports.productDelete = (req, res) => {
     (product) => product.id === +req.params.productId
   );
   if (foundProduct) {
-    products = products.filter((product) => product.id !== productId);
+    products = products.filter((product) => product.id !== +productId);
     res.status(204);
     return res.end();
   } else {
