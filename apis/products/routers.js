@@ -7,6 +7,7 @@ const {
   productListFetch,
   productCreate,
   productDelete,
+  productUpdate,
 } = require("./controllers");
 
 //put all the routs here
@@ -14,6 +15,7 @@ const {
 router.get("/", productListFetch);
 router.post("/", productCreate);
 router.delete("/:productId", productDelete);
+router.put("/:productId", productUpdate);
 
 // exporting routers
 module.exports = router;
