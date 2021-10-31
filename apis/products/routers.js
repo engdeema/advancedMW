@@ -9,6 +9,15 @@ const {
   productDelete,
   productUpdate,
 } = require("./controllers");
+router.param("productId", async (req, res, next, productId) => {
+  const product = await fetchProduct(productId, next);
+  if (product) {
+    req.product = product;
+    next();
+  } else {
+    next({ status: 404, message: "product not found" });
+  }
+});
 
 //put all the routs here
 
